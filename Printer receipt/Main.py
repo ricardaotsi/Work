@@ -49,7 +49,7 @@ user_entry = Entry(user_imput)
 user_entry.pack()
 user_entry.focus_set()
 def callback():
-    user_entry.quit()
+    user_entry.destroy()
 user_button = Button(user_imput, text="Send", width=10, command=callback)
 user_button.pack()
 user_imput.mainloop()
