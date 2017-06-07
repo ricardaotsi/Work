@@ -4,3 +4,4 @@ Dependencies:
 -gspread
 -oauth2client
 -PyOpenSSL
+-PyPDF2
