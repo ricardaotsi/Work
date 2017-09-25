@@ -4,6 +4,8 @@ from tkinter import filedialog
 import PyPDF2
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import locale
+locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
 
 #Create and hide window, only need an open file dialog
 window = Tk()
@@ -63,6 +65,6 @@ for value in data_filter:
 wks = gc.open(user_entry.get()).get_worksheet(2)
 for value in data_filter:
     sheet_serial = wks.find(value[0])
-    wks.update_cell(sheet_serial.row, sheet_month.col, value[1])
-
-
+    tmp = value[1].strip('R$ ')
+    tmp = locale.format('%.2f', float(tmp))
+    wks.update_cell(sheet_serial.row, sheet_month.col, tmp)
