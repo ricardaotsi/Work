@@ -63,8 +63,10 @@ for value in data_filter:
     wks.update_cell(sheet_serial.row, sheet_month.col, value[2])
 #print price in worksheet 2
 wks = gc.open(user_entry.get()).get_worksheet(2)
+sheet_month = wks.find(month)
 for value in data_filter:
     sheet_serial = wks.find(value[0])
-    tmp = value[1].strip('R$ ')
+    remover = str.maketrans("","","R$ ,")
+    tmp = value[1].translate(remover)
     tmp = locale.format('%.2f', float(tmp))
     wks.update_cell(sheet_serial.row, sheet_month.col, tmp)
