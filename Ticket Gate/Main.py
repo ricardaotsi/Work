@@ -4,7 +4,7 @@ import csv
 pyautogui.FAILSAFE = True
 
 path = '/home/ti/Downloads/'
-file=open( path +"velti.csv", "r")
+file=open( path +"Tercerizados.csv", "r")
 reader = csv.reader(file)
 for line in reader:
     #Tab personal data
@@ -15,8 +15,8 @@ for line in reader:
     pyautogui.PAUSE
     pyautogui.click(140, 374); pyautogui.typewrite(line[5])#TIcket
     pyautogui.PAUSE
-    pyautogui.click(500, 345); pyautogui.typewrite('Tecnico')#Type
-    pyautogui.PAUSE
+    pyautogui.click(500, 345); pyautogui.typewrite('Tercerizado')#Type
+    pyautogui.PAUSE = 0.4
     #Tab Company
     pyautogui.click(370, 255)
     pyautogui.click(397, 288)#Button serach company
@@ -29,11 +29,14 @@ for line in reader:
     pyautogui.click(309, 290)#Button search access Level
     pyautogui.press('enter')#enter to search access Level
     pyautogui.PAUSE = 0.4#delay to search
-    pyautogui.click(379, 345)#Select access Level
+    pyautogui.click(379, 364)#Select access Level (379/345 servidor)(379/364 terceirizado)
     pyautogui.click(353, 287)#Add selection
     #Button save
     pyautogui.click(163, 619)
     pyautogui.PAUSE = 0.4#delay to save
     #Button confirmation
     pyautogui.click(634, 599)
-    pyautogui.PAUSE = 0.25#delay after confirmation
+    pyautogui.PAUSE = 0.4#delay after confirmation
+# while True:
+#         x, y = pyautogui.position()
+#         print('X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4))
