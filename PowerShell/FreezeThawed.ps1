@@ -1,0 +1,10 @@
+$wshell = New-Object -ComObject wscript.shell;
+$wshell.SendKeys("+^%{F6}")
+sleep(1)
+$wshell.SendKeys("password")
+$wshell.SendKeys("~")
+sleep(1)
+$wshell.SendKeys("%t")
+$wshell.SendKeys("%R")
+$wshell.SendKeys("~")
+$wshell.SendKeys("~")
