@@ -16,9 +16,9 @@ for line in reader:
     pyautogui.PAUSE = 0.2
     pyautogui.click(140, 288); pyautogui.typewrite(line[0])#Name
     pyautogui.PAUSE
-    pyautogui.click(140, 345); pyautogui.typewrite(line[2])#ID
+    pyautogui.click(140, 345); pyautogui.typewrite(line[1])#ID
     pyautogui.PAUSE
-    pyautogui.click(140, 374); pyautogui.typewrite(line[5])#TIcket
+    pyautogui.click(140, 374); pyautogui.typewrite(line[2])#TIcket
     pyautogui.PAUSE
     pyautogui.click(500, 345); pyautogui.typewrite(line[3])#Type
     #Tab Company
@@ -40,7 +40,7 @@ for line in reader:
     pyautogui.PAUSE = 0.5
     #Button save
     pyautogui.click(163, 619)
-    pyautogui.PAUSE = 0.3#delay to save
+    pyautogui.PAUSE = 0.5#delay to save
     #Button confirmation
     pyautogui.click(634, 599)
     pyautogui.PAUSE = 0.6
