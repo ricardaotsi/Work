@@ -1,0 +1,7 @@
+InterativaContadores requirements
+
+bs4
+html5lib
+gspread
+oauth2client
+PyOpenSSL
