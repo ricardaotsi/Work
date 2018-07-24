@@ -1,5 +1,6 @@
 InterativaContadores requirements
 
+requests
 bs4
 html5lib
 gspread
