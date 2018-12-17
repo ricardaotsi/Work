@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'TGCMain',
     'widget_tweaks',
 ]
 
@@ -78,6 +79,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'veltisql',
+        'HOST': 'db',
+        'PORT': '5432',
+    },
+    'vwcontrol': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vwcontrol',
         'USER': 'postgres',
         'PASSWORD': 'veltisql',
         'HOST': 'db',
