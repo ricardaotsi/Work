@@ -1,6 +1,31 @@
 {% extends 'TGCMain/base.html' %} 
 {% block content %}
-{% for row in rows %}
-    <li>{{ row }}</li>
-{% endfor %}
+<form method="GET" action="" id="searchform">
+    <input class="searchfield" id="searchbox" name="identificador" type="text" placeholder="Identificador..."/>
+    <input class="searchfield" id="searchbox" name="nome" type="text" placeholder="Nome..."/>
+    <input class="searchfield" id="searchbox" name="cracha" type="text" placeholder="Cracha..."/>
+    <input class="searchfield" id="searchbox" name="matricula" type="text" placeholder="Matricula..."/>
+    <input type="submit" value="OK">
+</form>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Identificador</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Cracha</th>
+        <th scope="col">Matricula</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+            <tr>
+                <td>{{row.ds_identificador_aux}}</td>
+                <td>{{ row.nm_pessoa }}</td>    
+                <td>{{row.nr_cracha}}</td>
+                <td>{{row.nr_matricula}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
 {% endblock %}
