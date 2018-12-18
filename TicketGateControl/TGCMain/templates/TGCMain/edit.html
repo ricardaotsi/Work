@@ -14,40 +14,39 @@
         {% endfor %}
         {% endif %}
     </div>
-
     <div class="container">
         <h2 class="text-center">Alterar Dados</h2>
         <form method="POST" action="">
             {% csrf_token %}
             <div class="form-row">
                 <div class="col-5">
-                    <input class="form-control" type="text" value="{{row.0.ds_identificador_aux}}" />
+                    <h3>Identificador</h3><input class="form-control" name='identificador' type="text" value="{{row.0.ds_identificador_aux}}" />
                 </div>
                 <div class="col-4">
-                    <input class="form-control" type="text" value="{{row.0.nm_pessoa}}" />
+                    <h3>Nome</h3><input class="form-control" name='nome' type="text" value="{{row.0.nm_pessoa}}" />
                 </div>
                 <div class="col">
-                    <input class="form-control" name="cracha" type="text" value="{{row.0.nr_cracha}}" />
+                    <h3>Cracha</h3><input class="form-control" name="cracha" type="text" value="{{row.0.nr_cracha}}" />
                 </div>
                 <div class="col">
-                    <input class="form-control" type="text" value="{{row.0.nr_matricula}}" />
+                    <h3>Matricula</h3><input class="form-control" name='matricula' type="text" value="{{row.0.nr_matricula}}" />
                 </div>
             </div>
             <div class="form-row">
                 <h3>Ativo?</h3>
                 <div class="form-check form-check-inline">
                 {% if row.0.fl_ativo == 'S' %}
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="S" checked>
+                    <input class="form-check-input" type="radio" name="ativo" id="inlineRadio1" value="S" checked>
                 {% else %}
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="S">
+                <input class="form-check-input" type="radio" name="ativo" id="inlineRadio1" value="S">
                 {% endif %}
                     <label class="form-check-label" for="inlineRadio1">SIM</label>
                 </div>
                 <div class="form-check form-check-inline">
                 {% if row.0.fl_ativo == 'N' %}
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="N" checked>
+                    <input class="form-check-input" type="radio" name="ativo" id="inlineRadio2" value="N" checked>
                 {% else %}
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="N">
+                    <input class="form-check-input" type="radio" name="ativo" id="inlineRadio2" value="N">
                 {% endif %}
                     <label class="form-check-label" for="inlineRadio2">NÃO</label>
                 </div>

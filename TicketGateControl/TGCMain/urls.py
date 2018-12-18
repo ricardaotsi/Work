@@ -6,4 +6,5 @@ urlpatterns = [
     # ex: /polls/
     path('', views.index, name='index'),
     url(r'^edit/$', views.edit, name='edit'),
+    url(r'^edit\?cracha=(?P<cracha>\d+)&ativo=(?P<ativo>\D+)$', views.edit, name='edit'),
 ]

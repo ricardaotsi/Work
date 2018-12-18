@@ -41,6 +41,7 @@
                 <th scope="col">Nome</a></th>
                 <th scope="col">Cracha</th>
                 <th scope="col">Matricula</th>
+                <th scope="col">Ativo</th>
             </tr>
         </thead>
         <tbody>
@@ -50,6 +51,7 @@
                 <td><a href='/edit/?cracha={{row.nr_cracha}}&ativo={{row.fl_ativo}}'>{{ row.nm_pessoa }}</a></td>
                 <td>{{row.nr_cracha}}</td>
                 <td>{{row.nr_matricula}}</td>
+                <td>{{row.fl_ativo}}</td>
             </tr>
             {% endfor %}
         </tbody>
