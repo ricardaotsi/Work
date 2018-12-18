@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     # ex: /polls/
     path('', views.index, name='index'),
+    url(r'^edit/$', views.edit, name='edit'),
 ]
