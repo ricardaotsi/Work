@@ -150,17 +150,46 @@ def edit(request):
 
 @login_required
 def insert(request):
-    rows = tipos()
+    tipo = tipos()
     if request.method == "POST":
-        ide=request.POST.get('identificador')
-        n=request.POST.get('nome')
-        c=request.POST.get('cracha')
-        m=request.POST.get('matricula')
-        a=request.POST.get('ativo')
-        with connections['vwcontrol'].cursor() as cursor:
-            try:
-                cursor.execute("insert into public.gen_pessoa (id_pessoa,dt_atualizacao,tp_pessoa,ds_Identificador_aux,fl_ativo,fl_calcular,fl_comissionado,fl_funcionario,fl_lista_negra,fl_master,fl_verifica_digital,fl_visitante,nm_pessoa,nr_cracha,nr_matricula,tp_origem_cadastro,fl_aluno,fl_cadastra_digital,fl_refeicao,fl_responsavel,id_empresa) values ((select max(id_pessoa) from public.gen_pessoa)+1,(select current_timestamp),'0','"+ide+"','"+a+"','S','N','S','N','N','S','N','"+n+"','"+c+"','"+m+"','SISTEMA','N','N','S','N','1')")
-                messages.success(request, 'Cadastro inserido com sucesso')
-            except:
-                messages.error(request, 'Ocorreu um erro no cadastro')
-    return render(request, 'TGCMain/insert.html', {"rows":rows})
+        identificadorP=request.POST.get('identificador')
+        nomeP=request.POST.get('nome')
+        crachaP=request.POST.get('cracha')
+        matriculaP=request.POST.get('matricula')
+        ativoP=request.POST.get('ativo')
+
+        if identificadorP == '' or nomeP == '' or crachaP == '' or matriculaP == '' or ativoP == '':
+            messages.error(request, 'Falha no cadastro, está faltando informações')
+        else:
+            queryPostCracha = ("select * "
+                "from public.gen_pessoa "
+                "where nr_cracha="+crachaP)
+            queryPostMatricula =("select * "
+                "from public.gen_pessoa "
+                "where nr_matricula="+matriculaP)    
+            with connections['vwcontrol'].cursor() as cursor:
+                try:
+                    cursor.execute(queryPostCracha)
+                    rowCracha = namedtuplefetchall(cursor)
+                    cursor.execute(queryPostMatricula)
+                    rowMatricula = namedtuplefetchall(cursor)
+                    if not rowCracha and not rowMatricula:
+                        cursor.execute("insert into public.gen_pessoa "
+                                        "(id_pessoa,dt_atualizacao,tp_pessoa,"
+                                        "ds_Identificador_aux,fl_ativo,fl_calcular,"
+                                        "fl_comissionado,fl_funcionario,fl_lista_negra,"
+                                        "fl_master,fl_verifica_digital,fl_visitante,"
+                                        "nm_pessoa,nr_cracha,nr_matricula,"
+                                        "tp_origem_cadastro,fl_aluno,fl_cadastra_digital,"
+                                        "fl_refeicao,fl_responsavel,id_empresa) "
+                                        "values ((select max(id_pessoa) from public.gen_pessoa)+1,(select current_timestamp),"
+                                        "'0','"+identificadorP.upper()+"','"+ativoP+"',"
+                                        "'S','N','S','N','N','S','N',"
+                                        "'"+nomeP.upper()+"','"+crachaP+"','"+matriculaP+"',"
+                                        "'SISTEMA','N','N','S','N','1')")
+                        messages.success(request, 'Cadastro inserido com sucesso')
+                    else:
+                        messages.error(request, 'Cracha ou matricula já existem')
+                except:
+                    messages.error(request, 'Ocorreu um erro no cadastro, tente novemente')
+    return render(request, 'TGCMain/insert.html', {"tipo":tipo})

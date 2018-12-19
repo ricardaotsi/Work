@@ -23,8 +23,8 @@
             <div class="col-5">
                 <h3>Identificador</h3>
                 <select class="form-control" name="identificador">
-                    {% for row in rows %}
-                    <option>{{row.ds_identificador_aux}}</option>
+                    {% for t in tipo %}
+                    <option>{{t.ds_identificador_aux}}</option>
                     {% endfor %}
                 </select>
             </div>
