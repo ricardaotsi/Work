@@ -20,9 +20,12 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     "/home/infcuritiba/interativa/simpress-5e35fc2d6c71.json", scope)
+# credentials = ServiceAccountCredentials.from_json_keyfile_name(
+#     "/home/ti/Documentos/github/simpress-5e35fc2d6c71.json", scope)
 gc = gspread.authorize(credentials)
 
 log = "/home/infcuritiba/interativa/log"
+# log = "/home/ti/Documentos/github/Work/Web scraping/log"
 
 def contadores(imp, sheet):
     try:
@@ -38,7 +41,7 @@ def contadores(imp, sheet):
         
         gspreadlist = [
             datetime.datetime.now().strftime("%d/%m/%y %H:%M:%S"),
-            str(result_contador[3])[14:-5]
+            int(str(result_contador[3])[14:-5])
         ]
 
         wks = gc.open("Contadores").get_worksheet(sheet)
@@ -60,7 +63,7 @@ except requests.exceptions.RequestException as err:
 else:
     soup = BeautifulSoup(page3.content, 'html5lib')
     contador = soup.find_all("td", class_="std_2")
-    result_contador = str(contador[0])[18:-6]
+    result_contador = int(str(contador[0])[18:-6])
 
     gspreadlist = [
         datetime.datetime.now().strftime("%d/%m/%y %H:%M:%S"), 

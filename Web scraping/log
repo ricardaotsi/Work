@@ -1,3 +1,23 @@
 172.65.55.55 ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
 172.65.55.55 ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
 172.65.55.55 ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+28/06/19 08:29:41 : 172.17.10.36 DONE 
+ 
+28/06/19 08:29:42 : 172.17.10.21 HTTPConnectionPool(host='172.17.10.21', port=80): Max retries exceeded with url: /web/guest/br/websys/status/getUnificationCounter.cgi (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff13a1a89b0>: Failed to establish a new connection: [Errno 113] No route to host'))
+ 
+28/06/19 08:29:45 : 172.17.10.26 DONE 
+ 
+28/06/19 08:29:46 : 172.17.10.29 DONE 
+ 
+28/06/19 08:29:46 : 172.17.10.34 DONE 
+ 
+28/06/19 08:29:47 : 172.17.10.30 DONE 
+ 
+28/06/19 08:29:47 : 172.17.10.27 DONE 
+ 
+28/06/19 08:29:47 : 172.17.10.25 DONE 
+ 
+28/06/19 08:29:47 : 172.17.10.22 DONE 
+ 
+28/06/19 08:29:48 : 172.17.10.28 DONE 
+ 
