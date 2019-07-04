@@ -32,4 +32,4 @@ for i in range(4):
         pyautogui.click(904, 621)
     pyautogui.click(843, 422,clicks=2)
     pyautogui.typewrite(inp1)
-    pyautogui.click(694, 920)
+    pyautogui.click(689, 913)
